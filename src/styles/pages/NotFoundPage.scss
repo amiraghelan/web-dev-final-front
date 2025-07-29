@@ -1,0 +1,93 @@
+.not-found {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: linear-gradient(135deg, vars.$background-color 0%, rgba(96, 165, 250, 0.1) 100%);
+
+  .not-found-main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: vars.$spacing-lg;
+  }
+
+  .not-found-content {
+    text-align: center;
+    max-width: 600px;
+    padding: vars.$spacing-md;
+    background-color: vars.$white;
+    border-radius: 12px;
+    box-shadow: vars.$shadow-md;
+  }
+
+  .not-found-title {
+    font-size: 2.5rem;
+    font-weight: vars.$font-weight-bold;
+    color: vars.$text-color;
+    margin-bottom: vars.$spacing-sm;
+
+    span {
+      color: vars.$primary-color;
+      font-size: 3rem;
+    }
+
+    @media (min-width: vars.$breakpoint-md) {
+      font-size: 3.5rem;
+      span {
+        font-size: 4rem;
+      }
+    }
+  }
+
+  .not-found-memo {
+    font-size: vars.$font-size-base;
+    color: vars.$text-color;
+    margin-bottom: vars.$spacing-lg;
+    line-height: 1.5;
+  }
+
+  .not-found-button {
+    display: inline-block;
+    background-color: vars.$primary-color;
+    color: vars.$white;
+    padding: vars.$spacing-sm vars.$spacing-lg;
+    text-decoration: none;
+    font-size: vars.$font-size-base;
+    font-weight: vars.$font-weight-bold;
+    border-radius: 8px;
+    box-shadow: vars.$shadow-sm;
+    transition: background-color vars.$transition-speed vars.$transition-easing, transform vars.$transition-speed vars.$transition-easing;
+
+    &:hover {
+      background-color: vars.$accent-color;
+      transform: translateY(-2px);
+    }
+  }
+
+  @media (max-width: vars.$breakpoint-sm) {
+    .not-found-main {
+      padding: vars.$spacing-md;
+    }
+
+    .not-found-content {
+      padding: vars.$spacing-sm;
+    }
+
+    .not-found-title {
+      font-size: 1.75rem;
+      span {
+        font-size: 2rem;
+      }
+    }
+
+    .not-found-memo {
+      font-size: vars.$font-size-small;
+    }
+
+    .not-found-button {
+      padding: vars.$spacing-xs vars.$spacing-md;
+      font-size: vars.$font-size-small;
+    }
+  }
+}
