@@ -1,0 +1,105 @@
+.auth-card {
+  background-color: vars.$white;
+  padding: vars.$spacing-md;
+  border-radius: 8px;
+  box-shadow: vars.$shadow-md;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+
+  .auth-tabs {
+    display: flex;
+    border-bottom: 1px solid vars.$neutral-color;
+    margin-bottom: vars.$spacing-md;
+
+    .auth-tab {
+      flex: 1;
+      padding: vars.$spacing-xs vars.$spacing-sm;
+      background: none;
+      border: none;
+      font-size: vars.$font-size-base;
+      color: vars.$text-color;
+      cursor: pointer;
+      transition: color vars.$transition-speed vars.$transition-easing;
+
+      &.active {
+        color: vars.$primary-color;
+        border-bottom: 2px solid vars.$primary-color;
+      }
+
+      &:hover {
+        color: vars.$accent-color;
+      }
+    }
+  }
+
+  .auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: vars.$spacing-sm;
+  }
+
+  .auth-title {
+    font-size: vars.$font-size-large;
+    font-weight: vars.$font-weight-bold;
+    color: vars.$text-color;
+    text-align: center;
+    margin-bottom: vars.$spacing-sm;
+  }
+
+  .auth-field {
+    display: flex;
+    flex-direction: column;
+    gap: vars.$spacing-xs;
+
+    label {
+      font-size: vars.$font-size-small;
+      color: vars.$text-color;
+      font-weight: vars.$font-weight-regular;
+    }
+
+    .auth-input {
+      padding: vars.$spacing-xs;
+      font-size: vars.$font-size-base;
+      border: 1px solid vars.$neutral-color;
+      border-radius: 4px;
+      transition: border-color vars.$transition-speed vars.$transition-easing;
+
+      &:focus {
+        outline: none;
+        border-color: vars.$primary-color;
+      }
+    }
+  }
+
+  .auth-submit {
+    background-color: vars.$primary-color;
+    color: vars.$white;
+    padding: vars.$spacing-sm;
+    border: none;
+    border-radius: 4px;
+    font-size: vars.$font-size-base;
+    font-weight: vars.$font-weight-regular;
+    cursor: pointer;
+    transition: background-color vars.$transition-speed vars.$transition-easing;
+
+    &:hover {
+      background-color: vars.$accent-color;
+    }
+  }
+
+  @media (max-width: vars.$breakpoint-sm) {
+    padding: vars.$spacing-sm;
+    max-width: 300px;
+
+    .auth-title {
+      font-size: vars.$font-size-base;
+    }
+
+    .auth-field {
+      .auth-input {
+        font-size: vars.$font-size-small;
+      }
+    }
+  }
+}
