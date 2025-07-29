@@ -1,0 +1,78 @@
+
+.hero-banner {
+  background-image: url("https://images.unsplash.com/photo-1618005182380-7c46f8987747?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: vars.$spacing-lg;
+
+  .container {
+    max-width: vars.$breakpoint-lg;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .hero-content {
+    text-align: center; // Centered for mobile
+    max-width: 600px;
+
+    @media (min-width: vars.$breakpoint-md) {
+      text-align: left; // Left-aligned for large screens
+      margin-left: vars.$spacing-lg; // Offset from left edge
+    }
+  }
+
+  .hero-title {
+    font-size: 2rem;
+    font-weight: vars.$font-weight-bold;
+    color: vars.$text-color;
+    margin-bottom: vars.$spacing-sm;
+
+    @media (min-width: vars.$breakpoint-md) {
+      font-size: 2.5rem;
+    }
+  }
+
+  .hero-memo {
+    font-size: vars.$font-size-base;
+    color: vars.$text-color;
+    margin-bottom: vars.$spacing-md;
+
+    @media (min-width: vars.$breakpoint-md) {
+      max-width: 500px;
+    }
+  }
+
+  .hero-button {
+    display: inline-block;
+    background-color: vars.$primary-color;
+    color: vars.$white;
+    padding: vars.$spacing-sm vars.$spacing-md;
+    text-decoration: none;
+    font-size: vars.$font-size-base;
+    font-weight: vars.$font-weight-regular;
+    border-radius: 4px;
+    transition: background-color vars.$transition-speed vars.$transition-easing;
+
+    &:hover {
+      background-color: vars.$accent-color;
+    }
+  }
+
+  @media (max-width: vars.$breakpoint-md) {
+    padding: vars.$spacing-md; // Tighter padding for mobile
+    background-position: top; // Focus on top of image for mobile
+    .hero-content {
+      margin: 0 auto; // Center content on mobile
+    }
+    .hero-title {
+      font-size: 1.75rem; // Smaller title for mobile
+    }
+    .hero-memo {
+      font-size: vars.$font-size-small; // Smaller memo for mobile
+    }
+  }
+}
