@@ -1,0 +1,107 @@
+@mixin flex-center {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar {
+  background-color: vars.$white;
+  color: vars.$text-color;
+  padding: vars.$spacing-sm;
+  box-shadow: vars.$shadow-sm;
+
+  .container {
+    @include flex-center;
+    max-width: vars.$breakpoint-xl;
+    margin: 0 auto;
+  }
+
+  .logo {
+    font-size: vars.$font-size-large;
+    font-weight: vars.$font-weight-bold;
+    color: vars.$primary-color;
+  }
+
+  .desktop-nav {
+    display: none;
+
+    .nav-list {
+      display: flex;
+      gap: vars.$spacing-sm;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      .nav-link {
+        color: vars.$text-color;
+        text-decoration: none;
+        font-size: vars.$font-size-base;
+        transition: color vars.$transition-speed vars.$transition-easing;
+
+        &:hover {
+          color: vars.$accent-color;
+        }
+      }
+    }
+  }
+
+  .mobile-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: vars.$text-color;
+
+    .hamburger-icon {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  .mobile-nav {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height vars.$transition-speed vars.$transition-easing;
+
+    &.open {
+      max-height: 200px;
+    }
+
+    .mobile-nav-list {
+      list-style: none;
+      margin: vars.$spacing-sm 0 0 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: vars.$spacing-xs;
+
+      .nav-link {
+        color: vars.$text-color;
+        text-decoration: none;
+        font-size: vars.$font-size-base;
+        display: block;
+        padding: vars.$spacing-xs;
+        transition: color vars.$transition-speed vars.$transition-easing;
+
+        &:hover {
+          color: vars.$accent-color;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: vars.$breakpoint-md) {
+  .navbar {
+    .desktop-nav {
+      display: block;
+    }
+
+    .mobile-toggle {
+      display: none;
+    }
+
+    .mobile-nav {
+      display: none;
+    }
+  }
+}
