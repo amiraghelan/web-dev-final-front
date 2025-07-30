@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "../../styles/components/Navbar.scss";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,19 +16,19 @@ const Navbar = () => {
         <nav className="desktop-nav">
           <ul className="nav-list">
             <li>
-              <a href="#" className="nav-link">
+              <Link to="/" className="nav-link">
                 Home
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#" className="nav-link">
-                Shop
-              </a>
+              <Link to="/auth" className="nav-link">
+                Login / Register
+              </Link>
             </li>
             <li>
-              <a href="#" className="nav-link">
+              <Link to="/contact" className="nav-link">
                 Contact
-              </a>
+              </Link>
             </li>
           </ul>
         </nav>
@@ -55,19 +56,19 @@ const Navbar = () => {
       <nav className={`mobile-nav ${isOpen ? "open" : ""}`}>
         <ul className="mobile-nav-list">
           <li>
-            <a href="#" className="nav-link">
+            <Link to="/" className="nav-link">
               Home
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#" className="nav-link">
-              Shop
-            </a>
+            <Link to="/auth" className="nav-link">
+              Login / Register
+            </Link>
           </li>
           <li>
-            <a href="#" className="nav-link">
+            <Link to="/contact" className="nav-link">
               Contact
-            </a>
+            </Link>
           </li>
         </ul>
       </nav>

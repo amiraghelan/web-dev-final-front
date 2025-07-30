@@ -1,4 +1,5 @@
 import "@styles/pages/NotFoundPage.scss";
+import { Link } from "react-router-dom";
 
 const NotFound = () => {
   return (
@@ -9,9 +10,9 @@ const NotFound = () => {
             <span>404</span> - Page Not Found
           </h1>
           <p className="not-found-memo">Oops! The page you’re looking for doesn’t exist.</p>
-          <a href="#" className="not-found-button">
+          <Link to="/" className="not-found-button">
             Back to Home
-          </a>
+          </Link>
         </div>
       </main>
     </div>
