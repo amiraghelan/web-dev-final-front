@@ -1,4 +1,5 @@
 import "@styles/components/HeroBanner.scss";
+import { Link } from "react-router-dom";
 
 const HeroBanner = () => {
    return (
@@ -9,11 +10,11 @@ const HeroBanner = () => {
                <p className="hero-memo">
                   Discover quality products with a touch of elegance.
                </p>
-               <a
-                  href="#"
+               <Link
+                  to="/products"
                   className="hero-button">
                   Start Shopping
-               </a>
+               </Link>
             </div>
          </div>
       </section>
