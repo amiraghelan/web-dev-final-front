@@ -19,7 +19,7 @@ const ProtectedAdminRoute = ({ children }: ProtectedAdminRouteProps) => {
   }
 
   if (!isAuthenticated || user.role !== "admin") {
-    return <Navigate to="/auth" replace />;
+    return <Navigate to="/not-found" replace />;
   }
 
   return <>{children}</>;

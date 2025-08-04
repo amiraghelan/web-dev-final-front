@@ -1,6 +1,6 @@
 import "./styles/components/App.scss";
 import NotFound from "@pages/NotFoundPage";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, Navigate, RouterProvider } from "react-router-dom";
 import MainLayout from "./MainLayout";
 import AuthPage from "@pages/AuthPage";
 import HeroBanner from "@components/HeroBanner";
@@ -15,7 +15,6 @@ const router = createBrowserRouter([
    {
       path: "/",
       element: <MainLayout />,
-      errorElement: <NotFound />,
       children: [
          {
             path: "/",
@@ -51,6 +50,14 @@ const router = createBrowserRouter([
          },
       ],
    },
+   {
+      path:'not-found',
+      element :<NotFound/>
+   },
+   {
+      path:'*',
+      element: <Navigate to="/not-found" replace />
+   }
 ]);
 
 function App() {
