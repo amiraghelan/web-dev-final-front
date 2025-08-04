@@ -12,11 +12,13 @@ const ProtectedAdminRoute = ({ children }: ProtectedAdminRouteProps) => {
 
   if (!authContext) throw new Error("AuthContext must be used within AuthProvider");
 
-  const { isAuthenticated, user } = authContext;
-  console.log(isAuthenticated)
-  console.log(user.role)
+  const { isAuthenticated, user, loading } = authContext;
+
+  if (loading) {
+    return <div className="loading">Loading...</div>;
+  }
+
   if (!isAuthenticated || user.role !== "admin") {
-    console.log("in if")
     return <Navigate to="/auth" replace />;
   }
 

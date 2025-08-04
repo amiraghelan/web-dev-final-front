@@ -1,11 +1,20 @@
 body {
-  margin: 0;
-  font-family: vars.$font-family-base;
-  background-color: vars.$background-color;
-  color: vars.$text-color;
+   margin: 0;
+   font-family: vars.$font-family-base;
+   background-color: vars.$background-color;
+   color: vars.$text-color;
 }
 
-a{
-  text-decoration: none;
-  color: inherit;
+.loading {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   min-height: 100vh;
+   font-size: vars.$font-size-large;
+   color: vars.$text-color;
+}
+
+a {
+   text-decoration: none;
+   color: inherit;
 }

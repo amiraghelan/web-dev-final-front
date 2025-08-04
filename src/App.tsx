@@ -6,7 +6,7 @@ import AuthPage from "@pages/AuthPage";
 import HeroBanner from "@components/HeroBanner";
 import ProductsPage from "@pages/ProductsPage";
 import ProductDetailPage from "@pages/ProductDetailPage";
-import ProtectedAdminRoute from "@pages/AdminPanelPage";
+import ProtectedAdminRoute from "@pages/ProtectectedAdminRoute";
 import AdminPanel from "@components/AdminPanel";
 
 const router = createBrowserRouter([
