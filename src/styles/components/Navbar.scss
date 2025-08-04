@@ -1,33 +1,44 @@
-@mixin flex-center {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
 .navbar {
   background-color: vars.$white;
-  color: vars.$text-color;
-  padding: vars.$spacing-sm;
   box-shadow: vars.$shadow-sm;
+  padding: vars.$spacing-md 0;
 
-  .container {
-    @include flex-center;
+  .navbar-container {
     max-width: vars.$breakpoint-xl;
     margin: 0 auto;
+    padding: 0 vars.$spacing-md;
+    display: flex;
+    align-items: center;
+    /* Use grid to control layout */
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: vars.$spacing-md;
   }
 
-  .logo {
+  .navbar-logo {
     font-size: vars.$font-size-large;
     font-weight: vars.$font-weight-bold;
     color: vars.$primary-color;
+    /* Remove order, handled by grid */
+  }
+
+  .mobile-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: vars.$font-size-large;
+    cursor: pointer;
+    color: vars.$text-color;
   }
 
   .desktop-nav {
-    display: none;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center nav within its grid column */
 
     .nav-list {
       display: flex;
-      gap: vars.$spacing-sm;
+      gap: vars.$spacing-md;
       list-style: none;
       margin: 0;
       padding: 0;
@@ -41,38 +52,80 @@
         &:hover {
           color: vars.$accent-color;
         }
+
+        &.active {
+          color: vars.$primary-color;
+          font-weight: vars.$font-weight-bold;
+        }
       }
     }
   }
 
-  .mobile-toggle {
+  .navbar-icons {
+    display: flex;
+    gap: vars.$spacing-sm;
+  }
+
+  .profile-menu {
+    position: relative;
+  }
+
+  .nav-icon {
     background: none;
     border: none;
+    font-size: vars.$font-size-large;
     cursor: pointer;
     color: vars.$text-color;
+    padding: vars.$spacing-xs;
 
-    .hamburger-icon {
-      width: 24px;
-      height: 24px;
+    &:hover {
+      color: vars.$accent-color;
+    }
+  }
+
+  .profile-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: vars.$white;
+    border: 1px solid vars.$neutral-color;
+    border-radius: 4px;
+    box-shadow: vars.$shadow-sm;
+    z-index: 1000;
+    min-width: 120px;
+
+    .dropdown-item {
+      display: block;
+      width: 100%;
+      padding: vars.$spacing-xs vars.$spacing-sm;
+      background: none;
+      border: none;
+      font-size: vars.$font-size-base;
+      color: vars.$text-color;
+      text-align: left;
+      cursor: pointer;
+
+      &:hover {
+        background-color: vars.$background-color;
+        color: vars.$accent-color;
+      }
     }
   }
 
   .mobile-nav {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height vars.$transition-speed vars.$transition-easing;
-
+    display: none;
     &.open {
-      max-height: 200px;
+      display: block;
+      grid-column: 1 / -1; /* Span full width */
     }
 
     .mobile-nav-list {
       list-style: none;
-      margin: vars.$spacing-sm 0 0 0;
       padding: 0;
+      margin: vars.$spacing-md 0;
       display: flex;
       flex-direction: column;
-      gap: vars.$spacing-xs;
+      gap: vars.$spacing-sm;
 
       .nav-link {
         color: vars.$text-color;
@@ -85,23 +138,55 @@
         &:hover {
           color: vars.$accent-color;
         }
+
+        &.active {
+          color: vars.$primary-color;
+          font-weight: vars.$font-weight-bold;
+        }
+
+        &.logout-button {
+          background: none;
+          border: none;
+          cursor: pointer;
+          padding: vars.$spacing-xs;
+          font-size: vars.$font-size-base;
+          color: vars.$text-color;
+
+          &:hover {
+            color: vars.$accent-color;
+          }
+        }
       }
     }
   }
-}
 
-@media (min-width: vars.$breakpoint-md) {
-  .navbar {
-    .desktop-nav {
+  @media (max-width: vars.$breakpoint-md) {
+    .mobile-toggle {
       display: block;
     }
 
-    .mobile-toggle {
+    .desktop-nav {
       display: none;
     }
 
     .mobile-nav {
       display: none;
+      width: 100%;
+      &.open {
+        display: block;
+      }
+    }
+
+    .navbar-container {
+      grid-template-columns: auto auto auto;
+    }
+
+    .navbar-logo {
+      order: -1;
+    }
+
+    .navbar-icons {
+      order: 0;
     }
   }
 }

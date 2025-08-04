@@ -1,82 +1,166 @@
-import { useState } from "react";
-import "../../styles/components/Navbar.scss";
-import { Link } from "react-router-dom";
+import { useState, useEffect, useContext } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "@contexts/AuthContext";
+import "@styles/components/Navbar.scss";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [activeNav, setActiveNav] = useState("Home");
+  const [isProfileOpen, setIsProfileOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const authContext = useContext(AuthContext);
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
+  if (!authContext) throw new Error("AuthContext must be used within AuthProvider");
+
+  const { isAuthenticated, user, logout } = authContext;
+
+  useEffect(() => {
+    if (location.pathname.startsWith("/products")) {
+      setActiveNav("Products");
+    } else if (location.pathname === "/") {
+      setActiveNav("Home");
+    } else if (location.pathname === "/auth") {
+      setActiveNav("Auth");
+    } else if (location.pathname === "/contact") {
+      setActiveNav("Contact");
+    } else if (location.pathname === "/admin") {
+      setActiveNav("Admin Panel");
+    } else if (location.pathname === "/profile") {
+      setActiveNav("Profile");
+    } else {
+      setActiveNav("");
+    }
+  }, [location]);
+
+  const handleNavClick = (nav: string) => {
+    setActiveNav(nav);
+    if (nav === "Products") {
+      navigate("/products");
+    } else if (nav === "Home") {
+      navigate("/");
+    } else if (nav === "Auth") {
+      navigate("/auth");
+    } else if (nav === "Contact") {
+      navigate("/contact");
+    } else if (nav === "Admin Panel") {
+      navigate("/admin");
+    } else if (nav === "Profile") {
+      navigate("/profile");
+    }
+    setIsOpen(false);
+    setIsProfileOpen(false);
   };
+
+  const handleLogout = () => {
+    logout();
+    navigate("/auth");
+    setIsOpen(false);
+    setIsProfileOpen(false);
+  };
+
+  const navItems = [
+    "Home",
+    ...(!isAuthenticated ? ["Auth"] : []),
+    "Products",
+    "Contact",
+    ...(user?.role === "admin" ? ["Admin Panel"] : []),
+  ];
 
   return (
     <header className="navbar">
-      <div className="container">
-        <h1 className="logo">My Shop</h1>
+      <div className="navbar-container">
+        <h1 className="navbar-logo">SHOP</h1>
+        <button className="mobile-toggle" onClick={() => setIsOpen(!isOpen)}>
+          {isOpen ? "✕" : "☰"}
+        </button>
         <nav className="desktop-nav">
           <ul className="nav-list">
-            <li>
-              <Link to="/" className="nav-link">
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link to="/auth" className="nav-link">
-                Login / Register
-              </Link>
-            </li>
-            <li>
-              <Link to="/contact" className="nav-link">
-                Contact
-              </Link>
-            </li>
-            <li>
-              <Link to="/products" className="nav-link">
-                Products
-              </Link>
-            </li>
+            {navItems.map((nav) => (
+              <li key={nav}>
+                <a
+                  href="#"
+                  className={`nav-link ${activeNav === nav ? "active" : ""}`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNavClick(nav);
+                  }}
+                >
+                  {nav}
+                </a>
+              </li>
+            ))}
           </ul>
         </nav>
-        <button
-          className="mobile-toggle"
-          onClick={toggleMenu}
-          aria-label="Toggle menu"
-        >
-          <svg
-            className="hamburger-icon"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d={isOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
-            />
-          </svg>
-        </button>
+        {isAuthenticated && (
+          <div className="navbar-icons">
+            <div className="profile-menu">
+              <button
+                className="nav-icon profile-icon"
+                onClick={() => setIsProfileOpen(!isProfileOpen)}
+                title="Profile"
+              >
+                👤
+              </button>
+              {isProfileOpen && (
+                <div className="profile-dropdown">
+                  <button
+                    className="dropdown-item"
+                    onClick={() => handleNavClick("Profile")}
+                  >
+                    Profile
+                  </button>
+                  <button className="dropdown-item" onClick={handleLogout}>
+                    Logout
+                  </button>
+                </div>
+              )}
+            </div>
+            <button className="nav-icon cart-icon" onClick={() => navigate("/cart")} title="Cart">
+              🛒
+            </button>
+          </div>
+        )}
+        <nav className={`mobile-nav ${isOpen ? "open" : ""}`}>
+          <ul className="mobile-nav-list">
+            {navItems.map((nav) => (
+              <li key={nav}>
+                <a
+                  href="#"
+                  className={`nav-link ${activeNav === nav ? "active" : ""}`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNavClick(nav);
+                  }}
+                >
+                  {nav}
+                </a>
+              </li>
+            ))}
+            {isAuthenticated && (
+              <>
+                <li>
+                  <a
+                    href="#"
+                    className={`nav-link ${activeNav === "Profile" ? "active" : ""}`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleNavClick("Profile");
+                    }}
+                  >
+                    Profile
+                  </a>
+                </li>
+                <li>
+                  <button className="nav-link logout-button" onClick={handleLogout}>
+                    Logout
+                  </button>
+                </li>
+              </>
+            )}
+          </ul>
+        </nav>
       </div>
-      <nav className={`mobile-nav ${isOpen ? "open" : ""}`}>
-        <ul className="mobile-nav-list">
-          <li>
-            <Link to="/" className="nav-link">
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link to="/auth" className="nav-link">
-              Login / Register
-            </Link>
-          </li>
-          <li>
-            <Link to="/contact" className="nav-link">
-              Contact
-            </Link>
-          </li>
-        </ul>
-      </nav>
     </header>
   );
 };
