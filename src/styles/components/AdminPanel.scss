@@ -1,0 +1,79 @@
+.admin-panel {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: vars.$background-color;
+
+  .admin-panel-main {
+    flex: 1;
+    padding: vars.$spacing-lg;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .admin-panel-content {
+    max-width: vars.$breakpoint-lg;
+    width: 100%;
+    background-color: vars.$white;
+    border-radius: 12px;
+    box-shadow: vars.$shadow-md;
+    padding: vars.$spacing-md;
+  }
+
+  .admin-panel-title {
+    font-size: 1.75rem;
+    font-weight: vars.$font-weight-bold;
+    color: vars.$text-color;
+    margin: 0 0 vars.$spacing-md;
+    text-align: center;
+  }
+
+  .admin-section {
+    margin-bottom: vars.$spacing-md;
+
+    h2 {
+      font-size: vars.$font-size-large;
+      color: vars.$text-color;
+      margin: 0 0 vars.$spacing-sm;
+    }
+
+    p {
+      font-size: vars.$font-size-base;
+      color: vars.$text-color;
+      margin: 0;
+    }
+  }
+
+  .product-list {
+    margin-top: vars.$spacing-sm;
+    padding: vars.$spacing-sm;
+    border: 1px solid vars.$neutral-color;
+    border-radius: 8px;
+    text-align: center;
+  }
+
+  @media (max-width: vars.$breakpoint-md) {
+    .admin-panel-main {
+      padding: vars.$spacing-sm;
+    }
+
+    .admin-panel-content {
+      padding: vars.$spacing-sm;
+    }
+
+    .admin-panel-title {
+      font-size: 1.5rem;
+    }
+
+    .admin-section {
+      h2 {
+        font-size: vars.$font-size-base;
+      }
+
+      p {
+        font-size: vars.$font-size-small;
+      }
+    }
+  }
+}

@@ -6,6 +6,8 @@ import AuthPage from "@pages/AuthPage";
 import HeroBanner from "@components/HeroBanner";
 import ProductsPage from "@pages/ProductsPage";
 import ProductDetailPage from "@pages/ProductDetailPage";
+import ProtectedAdminRoute from "@pages/AdminPanelPage";
+import AdminPanel from "@components/AdminPanel";
 
 const router = createBrowserRouter([
    {
@@ -28,6 +30,14 @@ const router = createBrowserRouter([
          {
             path: "products/:id",
             element: <ProductDetailPage />,
+         },
+         {
+            path: "admin",
+            element: (
+               <ProtectedAdminRoute>
+                  <AdminPanel />
+               </ProtectedAdminRoute>
+            ),
          },
       ],
    },

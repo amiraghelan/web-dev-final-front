@@ -58,6 +58,11 @@
       font-weight: vars.$font-weight-regular;
     }
 
+    .required {
+      color: #e74c3c; // Red for required fields
+      font-weight: bold;
+    }
+
     .auth-input {
       padding: vars.$spacing-xs;
       font-size: vars.$font-size-base;
