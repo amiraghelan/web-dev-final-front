@@ -29,8 +29,8 @@
          "@components/*": ["components/*"],
          "@pages/*": ["pages/*"],
          "@contexts/*": ["contexts/*"],
-         "@data/*": ["assets/data/*"]
-
+         "@data/*": ["assets/data/*"],
+         "@model/*": ["models/*"]
       }
    },
    "include": ["src"]
