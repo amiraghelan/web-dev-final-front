@@ -39,9 +39,9 @@ const AuthCard = () => {
 
     try {
       const response = await axios.post(`${config.apiBaseUrl}${endpoint}`, body);
-      const { token, user } = response.data;
+      const { token, user, cart } = response.data;
       toast.success(isLogin ? `Welcome ${user.username}` : "Signup Successful");
-      isLogin ? login(token, user) : signup(token, user);
+      isLogin ? login(token, user, cart) : signup(token, user, cart);
       navigate("/products");
     } catch (error: any) {
       toast.error(error.response?.data?.error || (isLogin ? "Login Failed" : "Signup Failed"));

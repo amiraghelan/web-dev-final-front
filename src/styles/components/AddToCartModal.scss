@@ -11,7 +11,7 @@
   z-index: 1000;
 }
 
-.modal-content {
+.add-to-cart-modal-content {
   background-color: vars.$white;
   border-radius: 12px;
   padding: vars.$spacing-md;
@@ -108,7 +108,7 @@
 }
 
 @media (max-width: vars.$breakpoint-md) {
-  .modal-content {
+  .add-to-cart-modal-content {
     max-width: 90%;
     padding: vars.$spacing-sm;
   }

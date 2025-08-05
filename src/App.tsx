@@ -1,6 +1,10 @@
 import "./styles/components/App.scss";
 import NotFound from "@pages/NotFoundPage";
-import { createBrowserRouter, Navigate, RouterProvider } from "react-router-dom";
+import {
+   createBrowserRouter,
+   Navigate,
+   RouterProvider,
+} from "react-router-dom";
 import MainLayout from "./MainLayout";
 import AuthPage from "@pages/AuthPage";
 import HeroBanner from "@components/HeroBanner";
@@ -11,6 +15,7 @@ import AdminPanel from "@components/AdminPanel";
 import ProtectedRoute from "@pages/ProtectedRoute";
 import Profile from "@components/Profile";
 import AboutUsPage from "@pages/AboutUsPage";
+import CartPage from "@pages/CartPage";
 
 const router = createBrowserRouter([
    {
@@ -53,16 +58,29 @@ const router = createBrowserRouter([
                </ProtectedRoute>
             ),
          },
+         {
+            path: "/cart",
+            element: (
+               <ProtectedRoute>
+                  <CartPage />
+               </ProtectedRoute>
+            ),
+         },
       ],
    },
    {
-      path:'not-found',
-      element :<NotFound/>
+      path: "not-found",
+      element: <NotFound />,
    },
    {
-      path:'*',
-      element: <Navigate to="/not-found" replace />
-   }
+      path: "*",
+      element: (
+         <Navigate
+            to="/not-found"
+            replace
+         />
+      ),
+   },
 ]);
 
 function App() {

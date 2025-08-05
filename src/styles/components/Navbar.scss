@@ -1,192 +1,207 @@
 .navbar {
-  background-color: vars.$white;
-  box-shadow: vars.$shadow-sm;
-  padding: vars.$spacing-md 0;
+   background-color: vars.$white;
+   box-shadow: vars.$shadow-sm;
+   padding: vars.$spacing-md 0;
 
-  .navbar-container {
-    max-width: vars.$breakpoint-xl;
-    margin: 0 auto;
-    padding: 0 vars.$spacing-md;
-    display: flex;
-    align-items: center;
-    /* Use grid to control layout */
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    gap: vars.$spacing-md;
-  }
-
-  .navbar-logo {
-    font-size: vars.$font-size-large;
-    font-weight: vars.$font-weight-bold;
-    color: vars.$primary-color;
-    /* Remove order, handled by grid */
-  }
-
-  .mobile-toggle {
-    display: none;
-    background: none;
-    border: none;
-    font-size: vars.$font-size-large;
-    cursor: pointer;
-    color: vars.$text-color;
-  }
-
-  .desktop-nav {
-    display: flex;
-    align-items: center;
-    justify-content: center; /* Center nav within its grid column */
-
-    .nav-list {
+   .navbar-container {
+      max-width: vars.$breakpoint-xl;
+      margin: 0 auto;
+      padding: 0 vars.$spacing-md;
       display: flex;
+      align-items: center;
+      /* Use grid to control layout */
+      display: grid;
+      grid-template-columns: auto 1fr auto;
       gap: vars.$spacing-md;
-      list-style: none;
-      margin: 0;
-      padding: 0;
+   }
 
-      .nav-link {
-        color: vars.$text-color;
-        text-decoration: none;
-        font-size: vars.$font-size-base;
-        transition: color vars.$transition-speed vars.$transition-easing;
+   .navbar-logo {
+      font-size: vars.$font-size-large;
+      font-weight: vars.$font-weight-bold;
+      color: vars.$primary-color;
+      /* Remove order, handled by grid */
+   }
 
-        &:hover {
-          color: vars.$accent-color;
-        }
-
-        &.active {
-          color: vars.$primary-color;
-          font-weight: vars.$font-weight-bold;
-        }
-      }
-    }
-  }
-
-  .navbar-icons {
-    display: flex;
-    gap: vars.$spacing-sm;
-  }
-
-  .profile-menu {
-    position: relative;
-  }
-
-  .nav-icon {
-    background: none;
-    border: none;
-    font-size: vars.$font-size-large;
-    cursor: pointer;
-    color: vars.$text-color;
-    padding: vars.$spacing-xs;
-
-    &:hover {
-      color: vars.$accent-color;
-    }
-  }
-
-  .profile-dropdown {
-    position: absolute;
-    top: 100%;
-    right: 0;
-    background-color: vars.$white;
-    border: 1px solid vars.$neutral-color;
-    border-radius: 4px;
-    box-shadow: vars.$shadow-sm;
-    z-index: 1000;
-    min-width: 120px;
-
-    .dropdown-item {
-      display: block;
-      width: 100%;
-      padding: vars.$spacing-xs vars.$spacing-sm;
+   .mobile-toggle {
+      display: none;
       background: none;
       border: none;
-      font-size: vars.$font-size-base;
-      color: vars.$text-color;
-      text-align: left;
+      font-size: vars.$font-size-large;
       cursor: pointer;
+      color: vars.$text-color;
+   }
+
+   .desktop-nav {
+      display: flex;
+      align-items: center;
+      justify-content: center; /* Center nav within its grid column */
+
+      .nav-list {
+         display: flex;
+         gap: vars.$spacing-md;
+         list-style: none;
+         margin: 0;
+         padding: 0;
+
+         .nav-link {
+            color: vars.$text-color;
+            text-decoration: none;
+            font-size: vars.$font-size-base;
+            transition: color vars.$transition-speed vars.$transition-easing;
+
+            &:hover {
+               color: vars.$accent-color;
+            }
+
+            &.active {
+               color: vars.$primary-color;
+               font-weight: vars.$font-weight-bold;
+            }
+         }
+      }
+   }
+
+   .navbar-icons {
+      display: flex;
+      gap: vars.$spacing-sm;
+   }
+
+   .profile-menu {
+      position: relative;
+   }
+
+   .nav-icon {
+      background: none;
+      border: none;
+      font-size: vars.$font-size-large;
+      cursor: pointer;
+      color: vars.$text-color;
+      padding: vars.$spacing-xs;
+      position: relative;
 
       &:hover {
-        background-color: vars.$background-color;
-        color: vars.$accent-color;
+         color: vars.$accent-color;
       }
-    }
-  }
 
-  .mobile-nav {
-    display: none;
-    &.open {
-      display: block;
-      grid-column: 1 / -1; /* Span full width */
-    }
+      .badge {
+         position: absolute;
+         top: -8px;
+         right: -8px;
+         background-color: vars.$danger-color;
+         color: vars.$white;
+         padding: 4px;
+         width: 12px;
+         height: 12px;
+         text-align: center;
+         border-radius: 50%;
+         font-size: vars.$font-size-xs;
+      }
+   }
 
-    .mobile-nav-list {
-      list-style: none;
-      padding: 0;
-      margin: vars.$spacing-md 0;
-      display: flex;
-      flex-direction: column;
-      gap: vars.$spacing-sm;
+   .profile-dropdown {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      background-color: vars.$white;
+      border: 1px solid vars.$neutral-color;
+      border-radius: 4px;
+      box-shadow: vars.$shadow-sm;
+      z-index: 1000;
+      min-width: 120px;
 
-      .nav-link {
-        color: vars.$text-color;
-        text-decoration: none;
-        font-size: vars.$font-size-base;
-        display: block;
-        padding: vars.$spacing-xs;
-        transition: color vars.$transition-speed vars.$transition-easing;
+      .dropdown-item {
+         display: block;
+         width: 100%;
+         padding: vars.$spacing-xs vars.$spacing-sm;
+         background: none;
+         border: none;
+         font-size: vars.$font-size-base;
+         color: vars.$text-color;
+         text-align: left;
+         cursor: pointer;
 
-        &:hover {
-          color: vars.$accent-color;
-        }
-
-        &.active {
-          color: vars.$primary-color;
-          font-weight: vars.$font-weight-bold;
-        }
-
-        &.logout-button {
-          background: none;
-          border: none;
-          cursor: pointer;
-          padding: vars.$spacing-xs;
-          font-size: vars.$font-size-base;
-          color: vars.$text-color;
-
-          &:hover {
+         &:hover {
+            background-color: vars.$background-color;
             color: vars.$accent-color;
-          }
-        }
+         }
       }
-    }
-  }
+   }
 
-  @media (max-width: vars.$breakpoint-md) {
-    .mobile-toggle {
-      display: block;
-    }
-
-    .desktop-nav {
+   .mobile-nav {
       display: none;
-    }
-
-    .mobile-nav {
-      display: none;
-      width: 100%;
       &.open {
-        display: block;
+         display: block;
+         grid-column: 1 / -1; /* Span full width */
       }
-    }
 
-    .navbar-container {
-      grid-template-columns: auto auto auto;
-    }
+      .mobile-nav-list {
+         list-style: none;
+         padding: 0;
+         margin: vars.$spacing-md 0;
+         display: flex;
+         flex-direction: column;
+         gap: vars.$spacing-sm;
 
-    .navbar-logo {
-      order: -1;
-    }
+         .nav-link {
+            color: vars.$text-color;
+            text-decoration: none;
+            font-size: vars.$font-size-base;
+            display: block;
+            padding: vars.$spacing-xs;
+            transition: color vars.$transition-speed vars.$transition-easing;
 
-    .navbar-icons {
-      order: 0;
-    }
-  }
+            &:hover {
+               color: vars.$accent-color;
+            }
+
+            &.active {
+               color: vars.$primary-color;
+               font-weight: vars.$font-weight-bold;
+            }
+
+            &.logout-button {
+               background: none;
+               border: none;
+               cursor: pointer;
+               padding: vars.$spacing-xs;
+               font-size: vars.$font-size-base;
+               color: vars.$text-color;
+
+               &:hover {
+                  color: vars.$accent-color;
+               }
+            }
+         }
+      }
+   }
+
+   @media (max-width: vars.$breakpoint-md) {
+      .mobile-toggle {
+         display: block;
+      }
+
+      .desktop-nav {
+         display: none;
+      }
+
+      .mobile-nav {
+         display: none;
+         width: 100%;
+         &.open {
+            display: block;
+         }
+      }
+
+      .navbar-container {
+         grid-template-columns: auto auto auto;
+      }
+
+      .navbar-logo {
+         order: -1;
+      }
+
+      .navbar-icons {
+         order: 0;
+      }
+   }
 }
