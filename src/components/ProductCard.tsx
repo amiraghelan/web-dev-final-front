@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import type { Product } from "@model/product.model";
 import AddToCartModal from "@components/AddToCartModal";
@@ -10,11 +11,13 @@ interface ProductCardProps {
 }
 
 const ProductCard = ({ product, isAuthenticated }: ProductCardProps) => {
+  const navigate = useNavigate();
   const defaultImage = "/default-image.svg";
   const [imageSrc, setImageSrc] = useState(product.imageUrl);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const addToCart = () => {
+  const addToCart = (e: React.MouseEvent) => {
+    e.stopPropagation(); // Prevent card click from navigating
     if (!isAuthenticated) {
       toast.error("Please log in to add to cart");
       return;
@@ -30,9 +33,17 @@ const ProductCard = ({ product, isAuthenticated }: ProductCardProps) => {
     setImageSrc(defaultImage);
   };
 
+  const handleCardClick = () => {
+    navigate(`/products/${product.id}`);
+  };
+
   return (
     <>
-      <div className={`card ${product.stock === 0 ? "out-of-stock" : ""}`}>
+      <div
+        className={`card ${product.stock === 0 ? "out-of-stock" : ""}`}
+        onClick={handleCardClick}
+        style={{ cursor: "pointer" }}
+      >
         <img
           src={imageSrc}
           alt={product.name}
