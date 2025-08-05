@@ -1,89 +1,92 @@
 .admin-panel {
-  display: flex;
-  justify-content: center;
-  align-items: start;
-  min-height: 100vh;
-  background-color: vars.$background-color;
-  padding: vars.$spacing-md;
+   display: flex;
+   justify-content: center;
+   align-items: start;
+   min-height: 100vh;
+   background-color: vars.$background-color;
+   padding: vars.$spacing-md;
 
-  .admin-container {
-    max-width: vars.$breakpoint-md;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: vars.$spacing-lg;
-  }
+   .admin-container {
+      max-width: vars.$breakpoint-md;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: vars.$spacing-lg;
+   }
 
-  .admin-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: vars.$spacing-md;
-  }
+   .admin-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: vars.$spacing-md;
+   }
 
-  .admin-title {
-    font-size: 2rem;
-    font-weight: vars.$font-weight-bold;
-    color: vars.$text-color;
-    margin: 0;
-  }
+   .admin-title {
+      font-size: vars.$font-size-large * 1.5;
+      font-weight: vars.$font-weight-bold;
+      color: vars.$primary-color;
+      margin: 0 0 vars.$spacing-lg;
+      text-align: center;
+      opacity: 0;
+      animation: fadeIn 1s ease-in-out forwards;
+   }
 
-  .tabs {
-    display: flex;
-    gap: vars.$spacing-sm;
-    border-bottom: 2px solid vars.$neutral-color;
+   .tabs {
+      display: flex;
+      gap: vars.$spacing-sm;
+      border-bottom: 2px solid vars.$neutral-color;
 
-    .tab {
-      background: none;
-      border: none;
-      font-size: vars.$font-size-base;
-      font-weight: vars.$font-weight-medium;
-      color: vars.$text-color;
-      padding: vars.$spacing-sm vars.$spacing-md;
-      cursor: pointer;
-      transition: color vars.$transition-speed vars.$transition-easing;
-
-      &.active {
-        color: vars.$primary-color;
-        border-bottom: 2px solid vars.$primary-color;
-      }
-
-      &:hover {
-        color: vars.$accent-color;
-      }
-
-      &:disabled {
-        color: vars.$neutral-color;
-        cursor: not-allowed;
-      }
-    }
-  }
-
-  .tab-content {
-    background-color: vars.$white;
-    border-radius: 12px;
-    box-shadow: vars.$shadow-md;
-    padding: vars.$spacing-lg;
-  }
-
-  @media (max-width: vars.$breakpoint-md) {
-    .admin-container {
-      padding: vars.$spacing-sm;
-    }
-
-    .admin-title {
-      font-size: 1.5rem;
-    }
-
-    .tabs {
       .tab {
-        font-size: vars.$font-size-small;
-        padding: vars.$spacing-xs vars.$spacing-sm;
-      }
-    }
+         background: none;
+         border: none;
+         font-size: vars.$font-size-base;
+         font-weight: vars.$font-weight-medium;
+         color: vars.$text-color;
+         padding: vars.$spacing-sm vars.$spacing-md;
+         cursor: pointer;
+         transition: color vars.$transition-speed vars.$transition-easing;
 
-    .tab-content {
-      padding: vars.$spacing-md;
-    }
-  }
+         &.active {
+            color: vars.$primary-color;
+            border-bottom: 2px solid vars.$primary-color;
+         }
+
+         &:hover {
+            color: vars.$accent-color;
+         }
+
+         &:disabled {
+            color: vars.$neutral-color;
+            cursor: not-allowed;
+         }
+      }
+   }
+
+   .tab-content {
+      background-color: vars.$white;
+      border-radius: 12px;
+      box-shadow: vars.$shadow-md;
+      padding: vars.$spacing-lg;
+   }
+
+   @media (max-width: vars.$breakpoint-md) {
+      .admin-container {
+         padding: vars.$spacing-sm;
+      }
+
+      .admin-title {
+         font-size: 1.5rem;
+      }
+
+      .tabs {
+         .tab {
+            font-size: vars.$font-size-small;
+            padding: vars.$spacing-xs vars.$spacing-sm;
+         }
+      }
+
+      .tab-content {
+         padding: vars.$spacing-md;
+      }
+   }
 }
