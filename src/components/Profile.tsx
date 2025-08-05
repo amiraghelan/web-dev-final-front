@@ -162,10 +162,6 @@ const Profile = () => {
               <span className="field-label">Last Name</span>
               <span className="field-value">{user.lastName || "N/A"}</span>
             </div>
-            <div className="profile-field">
-              <span className="field-label">Role</span>
-              <span className="field-value">{user.role || "N/A"}</span>
-            </div>
           </div>
         </div>
         <div className="addresses-section">

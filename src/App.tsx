@@ -33,7 +33,7 @@ const router = createBrowserRouter([
             element: <ProductDetailPage />,
          },
          {
-            path: "admin",
+            path: "admin/*",
             element: (
                <ProtectedAdminRoute>
                   <AdminPanel />

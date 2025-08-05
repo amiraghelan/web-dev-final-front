@@ -1,79 +1,89 @@
 .admin-panel {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   min-height: 100vh;
   background-color: vars.$background-color;
+  padding: vars.$spacing-md;
 
-  .admin-panel-main {
-    flex: 1;
-    padding: vars.$spacing-lg;
+  .admin-container {
+    max-width: vars.$breakpoint-md;
+    width: 100%;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    gap: vars.$spacing-lg;
   }
 
-  .admin-panel-content {
-    max-width: vars.$breakpoint-lg;
-    width: 100%;
+  .admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: vars.$spacing-md;
+  }
+
+  .admin-title {
+    font-size: 2rem;
+    font-weight: vars.$font-weight-bold;
+    color: vars.$text-color;
+    margin: 0;
+  }
+
+  .tabs {
+    display: flex;
+    gap: vars.$spacing-sm;
+    border-bottom: 2px solid vars.$neutral-color;
+
+    .tab {
+      background: none;
+      border: none;
+      font-size: vars.$font-size-base;
+      font-weight: vars.$font-weight-medium;
+      color: vars.$text-color;
+      padding: vars.$spacing-sm vars.$spacing-md;
+      cursor: pointer;
+      transition: color vars.$transition-speed vars.$transition-easing;
+
+      &.active {
+        color: vars.$primary-color;
+        border-bottom: 2px solid vars.$primary-color;
+      }
+
+      &:hover {
+        color: vars.$accent-color;
+      }
+
+      &:disabled {
+        color: vars.$neutral-color;
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  .tab-content {
     background-color: vars.$white;
     border-radius: 12px;
     box-shadow: vars.$shadow-md;
-    padding: vars.$spacing-md;
-  }
-
-  .admin-panel-title {
-    font-size: 1.75rem;
-    font-weight: vars.$font-weight-bold;
-    color: vars.$text-color;
-    margin: 0 0 vars.$spacing-md;
-    text-align: center;
-  }
-
-  .admin-section {
-    margin-bottom: vars.$spacing-md;
-
-    h2 {
-      font-size: vars.$font-size-large;
-      color: vars.$text-color;
-      margin: 0 0 vars.$spacing-sm;
-    }
-
-    p {
-      font-size: vars.$font-size-base;
-      color: vars.$text-color;
-      margin: 0;
-    }
-  }
-
-  .product-list {
-    margin-top: vars.$spacing-sm;
-    padding: vars.$spacing-sm;
-    border: 1px solid vars.$neutral-color;
-    border-radius: 8px;
-    text-align: center;
+    padding: vars.$spacing-lg;
   }
 
   @media (max-width: vars.$breakpoint-md) {
-    .admin-panel-main {
+    .admin-container {
       padding: vars.$spacing-sm;
     }
 
-    .admin-panel-content {
-      padding: vars.$spacing-sm;
-    }
-
-    .admin-panel-title {
+    .admin-title {
       font-size: 1.5rem;
     }
 
-    .admin-section {
-      h2 {
-        font-size: vars.$font-size-base;
-      }
-
-      p {
+    .tabs {
+      .tab {
         font-size: vars.$font-size-small;
+        padding: vars.$spacing-xs vars.$spacing-sm;
       }
+    }
+
+    .tab-content {
+      padding: vars.$spacing-md;
     }
   }
 }
