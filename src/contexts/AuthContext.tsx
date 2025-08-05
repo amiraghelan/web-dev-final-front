@@ -119,8 +119,9 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
             headers: { Authorization: `Bearer ${token}` },
             data: { productId },
          });
-         updateCart(response.data.data || []);
+         updateCart(response.data.cart || []);
       } catch (error: any) {
+         console.log(error)
          throw new Error(
             error.response?.data?.error || "Failed to remove from cart"
          );
