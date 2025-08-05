@@ -40,20 +40,14 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
    const [loading, setLoading] = useState(true);
 
    useEffect(() => {
-      console.log("Checking sessionStorage on mount...");
       const storedToken = sessionStorage.getItem("token");
       const storedUser = sessionStorage.getItem("user");
       if (storedToken && storedUser) {
-         console.log("Found token and user in sessionStorage:", {
-            storedToken,
-            storedUser,
-         });
          try {
             const parsedUser = JSON.parse(storedUser);
             setToken(storedToken);
             setUser(parsedUser);
             setIsAuthenticated(true);
-            console.log("Successfully restored auth state from sessionStorage");
          } catch (error) {
             console.error("Failed to parse user from sessionStorage", error);
             sessionStorage.removeItem("token");
@@ -66,7 +60,6 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
    }, []);
 
    const login = (token: string, user: User) => {
-      console.log("Storing token and user in sessionStorage:", { token, user });
       setToken(token);
       setUser(user);
       setIsAuthenticated(true);
@@ -75,7 +68,6 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
    };
 
    const signup = (token: string, user: User) => {
-      console.log("Storing token and user in sessionStorage:", { token, user });
       setToken(token);
       setUser(user);
       setIsAuthenticated(true);
@@ -84,7 +76,6 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
    };
 
    const logout = () => {
-      console.log("Clearing sessionStorage and resetting auth state");
       setToken(null);
       setUser({
          id: null,
@@ -99,7 +90,6 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
    };
 
    const updateUser = (updatedUser: User) => {
-      console.log("Updating user in sessionStorage:", updatedUser);
       setUser(updatedUser);
       sessionStorage.setItem("user", JSON.stringify(updatedUser));
    };

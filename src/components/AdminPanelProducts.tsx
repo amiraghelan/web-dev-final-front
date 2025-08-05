@@ -153,7 +153,7 @@ const AdminPanelProducts = () => {
     setIsLoading(true);
     try {
       const payload: Product = {
-        id: editProduct.id, // Ensure id is included
+        id: editProduct.id,
         imageUrl: editProduct.imageUrl,
         name: editProduct.name,
         description: editProduct.description,
@@ -162,7 +162,6 @@ const AdminPanelProducts = () => {
         isOnSale: editProduct.isOnSale,
         onSalePrice: editProduct.isOnSale ? editProduct.onSalePrice : 0, // Ensure onSalePrice is 0 if not on sale
       };
-      console.log("Edit product payload:", payload); // Debug payload
       await axios.put(`${config.apiBaseUrl}/product`, payload, {
         headers: { Authorization: `Bearer ${token}` },
       });
@@ -182,7 +181,6 @@ const AdminPanelProducts = () => {
     setIsLoading(true);
     try {
       const payload = { id: selectedProductId };
-      console.log("Delete product payload:", payload); // Debug payload
       await axios.delete(`${config.apiBaseUrl}/product`, {
         headers: { Authorization: `Bearer ${token}` },
         data: payload,

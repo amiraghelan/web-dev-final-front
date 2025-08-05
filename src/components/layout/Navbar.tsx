@@ -70,7 +70,7 @@ const Navbar = () => {
   return (
     <header className="navbar">
       <div className="navbar-container">
-        <h1 className="navbar-logo">SHOP</h1>
+        <h1 className="navbar-logo">Awsome Shop</h1>
         <button className="mobile-toggle" onClick={() => setIsOpen(!isOpen)}>
           {isOpen ? "✕" : "☰"}
         </button>
