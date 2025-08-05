@@ -116,7 +116,6 @@ const ProductDetail = () => {
             <p className={`product-stock ${product.stock > 0 ? "in-stock" : "out-of-stock"}`}>
               {product.stock > 0 ? `In Stock: ${product.stock}` : "Out of Stock"}
             </p>
-            <p className="product-id">Product ID: {product.id}</p>
             <button
               className="add-to-cart-button"
               onClick={addToCart}

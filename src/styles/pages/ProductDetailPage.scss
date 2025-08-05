@@ -33,6 +33,7 @@
   display: flex;
   flex-direction: column;
   gap: vars.$spacing-md;
+  padding: 0 vars.$spacing-md;
 }
 
 .product-title {
