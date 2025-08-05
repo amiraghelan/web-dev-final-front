@@ -1,0 +1,138 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: vars.$white;
+  border-radius: 12px;
+  padding: vars.$spacing-md;
+  width: 100%;
+  max-width: 400px;
+  position: relative;
+  box-shadow: vars.$shadow-lg;
+  display: flex;
+  flex-direction: column;
+  gap: vars.$spacing-md;
+}
+
+.modal-close {
+  position: absolute;
+  top: vars.$spacing-sm;
+  right: vars.$spacing-sm;
+  background: none;
+  border: none;
+  font-size: vars.$font-size-large;
+  color: vars.$text-color;
+  cursor: pointer;
+  transition: color vars.$transition-speed vars.$transition-easing;
+
+  &:hover {
+    color: vars.$danger-color;
+  }
+}
+
+.modal-title {
+  font-size: vars.$font-size-large;
+  font-weight: vars.$font-weight-bold;
+  color: vars.$text-color;
+  text-align: center;
+  margin: 0;
+}
+
+.modal-input-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: vars.$spacing-sm;
+}
+
+.modal-button {
+  background-color: vars.$primary-color;
+  color: vars.$white;
+  border: none;
+  border-radius: 8px;
+  padding: vars.$spacing-xs vars.$spacing-sm;
+  font-size: vars.$font-size-small;
+  cursor: pointer;
+  transition: background-color vars.$transition-speed vars.$transition-easing;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    background-color: vars.$accent-color;
+  }
+
+  &:disabled {
+    background-color: vars.$neutral-color;
+    cursor: not-allowed;
+  }
+}
+
+.modal-icon {
+  font-size: vars.$font-size-base; /* Icon size matches input text */
+  display: block;
+}
+
+.modal-input {
+  width: 60px;
+  padding: vars.$spacing-xs;
+  font-size: vars.$font-size-base;
+  text-align: center;
+  border: 1px solid vars.$neutral-color;
+  border-radius: 8px;
+}
+
+.modal-add-button {
+  background-color: vars.$primary-color;
+  color: vars.$white;
+  border: none;
+  border-radius: 8px;
+  padding: vars.$spacing-sm vars.$spacing-md;
+  font-size: vars.$font-size-base;
+  cursor: pointer;
+  transition: background-color vars.$transition-speed vars.$transition-easing;
+
+  &:hover {
+    background-color: vars.$accent-color;
+  }
+}
+
+@media (max-width: vars.$breakpoint-md) {
+  .modal-content {
+    max-width: 90%;
+    padding: vars.$spacing-sm;
+  }
+
+  .modal-title {
+    font-size: vars.$font-size-base;
+  }
+
+  .modal-button {
+    padding: vars.$spacing-xs;
+    font-size: vars.$font-size-xs;
+  }
+
+  .modal-icon {
+    font-size: vars.$font-size-small; /* Smaller icon on mobile */
+  }
+
+  .modal-input {
+    width: 50px;
+    font-size: vars.$font-size-small;
+  }
+
+  .modal-add-button {
+    padding: vars.$spacing-xs vars.$spacing-sm;
+    font-size: vars.$font-size-small;
+  }
+}
