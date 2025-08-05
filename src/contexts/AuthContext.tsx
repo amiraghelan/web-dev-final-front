@@ -16,6 +16,7 @@ interface AuthContextType {
    login: (token: string, user: User) => void;
    signup: (token: string, user: User) => void;
    logout: () => void;
+   updateUser: (user: User) => void;
 }
 
 export const AuthContext = createContext<AuthContextType | undefined>(
@@ -97,6 +98,12 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
       sessionStorage.removeItem("user");
    };
 
+   const updateUser = (updatedUser: User) => {
+      console.log("Updating user in sessionStorage:", updatedUser);
+      setUser(updatedUser);
+      sessionStorage.setItem("user", JSON.stringify(updatedUser));
+   };
+
    return (
       <AuthContext.Provider
          value={{
@@ -107,6 +114,7 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
             login,
             signup,
             logout,
+            updateUser,
          }}>
          {children}
       </AuthContext.Provider>
