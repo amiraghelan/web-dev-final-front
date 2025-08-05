@@ -10,6 +10,7 @@ import ProtectedAdminRoute from "@pages/ProtectectedAdminRoute";
 import AdminPanel from "@components/AdminPanel";
 import ProtectedRoute from "@pages/ProtectedRoute";
 import Profile from "@components/Profile";
+import AboutUsPage from "@pages/AboutUsPage";
 
 const router = createBrowserRouter([
    {
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
          {
             path: "products",
             element: <ProductsPage />,
+         },
+         {
+            path: "about-us",
+            element: <AboutUsPage />,
          },
          {
             path: "products/:id",

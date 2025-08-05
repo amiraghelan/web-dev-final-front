@@ -1,3 +1,15 @@
 {
-    "apiBaseUrl": "http://172.18.33.127:5000/api"
+   "apiBaseUrl": "http://172.18.33.127:5000/api",
+   "aboutUs": {
+      "title": "About Us",
+      "description": "We are a passionate team building awesome web Applications.",
+      "team": [
+         { "name": "AmirHosssein Aghelan", "role": "Frontend Developer" },
+         { "name": "Saam Shahrouzi", "role": "Backend Developer" }
+      ],
+      "contact": {
+         "email": "info@awsamoshop.com",
+         "phone": "+98-912-345-6789"
+      }
+   }
 }

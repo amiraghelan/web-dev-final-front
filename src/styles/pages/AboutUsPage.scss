@@ -1,0 +1,197 @@
+.about-us {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Footer fix */
+  background: linear-gradient(135deg, vars.$background-color 0%, vars.darken(vars.$background-color, 10%) 100%);
+}
+
+.about-us-main {
+  flex: 1; /* Footer fix */
+  max-width: 1000px;
+  margin: vars.$spacing-lg auto;
+  padding: vars.$spacing-md;
+  display: flex;
+  flex-direction: column;
+  gap: vars.$spacing-lg;
+}
+
+.about-us-title {
+  font-size: vars.$font-size-large * 1.8;
+  font-weight: vars.$font-weight-bold;
+  background: linear-gradient(90deg, vars.$primary-color, vars.$accent-color);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-align: center;
+  margin: 0;
+  opacity: 0;
+  animation: fadeIn 1s ease-in-out forwards;
+}
+
+.about-us-description-card {
+  background-color: vars.$white;
+  border-radius: 12px;
+  padding: vars.$spacing-md;
+  box-shadow: vars.$shadow-lg;
+  text-align: justify;
+}
+
+.about-us-description {
+  font-size: vars.$font-size-base;
+  color: vars.$text-color;
+  line-height: 1.8;
+  margin: 0;
+}
+
+.about-us-team {
+  display: flex;
+  flex-direction: column;
+  gap: vars.$spacing-md;
+}
+
+.team-title {
+  font-size: vars.$font-size-large * 1.2;
+  font-weight: vars.$font-weight-bold;
+  color: vars.$text-color;
+  text-align: center;
+  margin: 0;
+}
+
+.team-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: vars.$spacing-md;
+}
+
+.team-member {
+  background-color: vars.$white;
+  border-radius: 12px;
+  padding: vars.$spacing-md;
+  text-align: center;
+  box-shadow: vars.$shadow-md;
+  transition: transform vars.$transition-speed vars.$transition-easing, box-shadow vars.$transition-speed vars.$transition-easing;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: vars.$shadow-lg;
+  }
+}
+
+.member-avatar {
+  width: 100px;
+  height: 100px;
+  background-color: vars.$neutral-color;
+  border-radius: 50%;
+  margin: 0 auto vars.$spacing-sm;
+  background: linear-gradient(45deg, vars.$primary-color, vars.$accent-color);
+}
+
+.member-name {
+  font-size: vars.$font-size-base;
+  font-weight: vars.$font-weight-bold;
+  color: vars.$text-color;
+  margin: 0 0 vars.$spacing-xs;
+}
+
+.member-role {
+  font-size: vars.$font-size-small;
+  color: vars.$text-color;
+  margin: 0;
+}
+
+.about-us-contact {
+  display: flex;
+  flex-direction: column;
+  gap: vars.$spacing-md;
+  text-align: center;
+}
+
+.contact-title {
+  font-size: vars.$font-size-large * 1.2;
+  font-weight: vars.$font-weight-bold;
+  color: vars.$text-color;
+  margin: 0;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: vars.$spacing-sm;
+}
+
+.contact-button {
+  display: inline-block;
+  background-color: vars.$primary-color;
+  color: vars.$white;
+  padding: vars.$spacing-sm vars.$spacing-md;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: vars.$font-size-base;
+  transition: background-color vars.$transition-speed vars.$transition-easing, transform vars.$transition-speed vars.$transition-easing;
+
+  &:hover {
+    background-color: vars.$accent-color;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: vars.$breakpoint-md) {
+  .about-us-main {
+    margin: vars.$spacing-md;
+    padding: vars.$spacing-sm;
+  }
+
+  .about-us-title {
+    font-size: vars.$font-size-large * 1.3;
+  }
+
+  .about-us-description-card {
+    padding: vars.$spacing-sm;
+  }
+
+  .about-us-description {
+    font-size: vars.$font-size-small;
+  }
+
+  .team-title,
+  .contact-title {
+    font-size: vars.$font-size-base;
+  }
+
+  .team-list {
+    grid-template-columns: 1fr;
+  }
+
+  .team-member {
+    padding: vars.$spacing-sm;
+  }
+
+  .member-avatar {
+    width: 80px;
+    height: 80px;
+  }
+
+  .member-name {
+    font-size: vars.$font-size-small;
+  }
+
+  .member-role {
+    font-size: vars.$font-size-xs;
+  }
+
+  .contact-button {
+    padding: vars.$spacing-xs vars.$spacing-sm;
+    font-size: vars.$font-size-small;
+  }
+}

@@ -22,8 +22,8 @@ const Navbar = () => {
       setActiveNav("Home");
     } else if (location.pathname === "/auth") {
       setActiveNav("Auth");
-    } else if (location.pathname === "/contact") {
-      setActiveNav("Contact");
+    } else if (location.pathname === "/about-us") {
+      setActiveNav("About Us");
     } else if (location.pathname === "/admin") {
       setActiveNav("Admin Panel");
     } else if (location.pathname === "/profile") {
@@ -41,8 +41,8 @@ const Navbar = () => {
       navigate("/");
     } else if (nav === "Auth") {
       navigate("/auth");
-    } else if (nav === "Contact") {
-      navigate("/contact");
+    } else if (nav === "About Us") {
+      navigate("/about-us");
     } else if (nav === "Admin Panel") {
       navigate("/admin");
     } else if (nav === "Profile") {
@@ -63,7 +63,7 @@ const Navbar = () => {
     "Home",
     ...(!isAuthenticated ? ["Auth"] : []),
     "Products",
-    "Contact",
+    "About Us",
     ...(user?.role === "admin" ? ["Admin Panel"] : []),
   ];
 
