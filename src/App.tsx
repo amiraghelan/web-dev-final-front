@@ -16,6 +16,7 @@ import ProtectedRoute from "@pages/ProtectedRoute";
 import Profile from "@components/Profile";
 import AboutUsPage from "@pages/AboutUsPage";
 import CartPage from "@pages/CartPage";
+import UnderConstruction from "@pages/UnderConstruction";
 
 const router = createBrowserRouter([
    {
@@ -72,6 +73,11 @@ const router = createBrowserRouter([
       path: "not-found",
       element: <NotFound />,
    },
+   {
+      path: "coming-soon",
+      element: <UnderConstruction />,
+   },
+
    {
       path: "*",
       element: (

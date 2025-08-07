@@ -1,5 +1,5 @@
 {
-   "apiBaseUrl": "http://172.18.33.127:5000/api",
+   "apiBaseUrl": "https://server-a5h7.onrender.com/api",
    "aboutUs": {
       "title": "About Us",
       "description": "We are a passionate team building awesome web Applications.",

@@ -1,0 +1,103 @@
+@use "sass:color";
+
+.under-construction-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Footer fix */
+  background: linear-gradient(135deg, vars.$background-color, vars.darken(vars.$background-color, 5%));
+}
+
+.under-construction-main {
+  flex: 1; /* Footer fix */
+  max-width: 1000px;
+  margin: vars.$spacing-lg auto;
+  padding: vars.$spacing-md;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.under-construction-content {
+  background-color: vars.$white;
+  border-radius: 12px;
+  box-shadow: vars.$shadow-lg;
+  padding: vars.$spacing-lg;
+  text-align: center;
+  opacity: 0;
+  animation: fadeIn 1s ease-in-out forwards;
+  max-width: 500px;
+  width: 90%;
+}
+
+.under-construction-image {
+  width: 150px;
+  height: auto;
+  margin-bottom: vars.$spacing-md;
+}
+
+.under-construction-title {
+  font-size: vars.$font-size-large * 1.5;
+  font-weight: vars.$font-weight-bold;
+  color: vars.$primary-color;
+  margin: 0 0 vars.$spacing-md;
+}
+
+.under-construction-message {
+  font-size: vars.$font-size-base;
+  color: vars.$text-color;
+  margin: 0 0 vars.$spacing-lg;
+}
+
+.under-construction-back-button {
+  background-color: vars.$primary-color;
+  color: vars.$white;
+  border: none;
+  border-radius: 8px;
+  padding: vars.$spacing-sm vars.$spacing-md;
+  font-size: vars.$font-size-base;
+  cursor: pointer;
+  transition: background-color vars.$transition-speed vars.$transition-easing;
+
+  &:hover {
+    background-color: vars.$accent-color;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: vars.$breakpoint-md) {
+  .under-construction-main {
+    margin: vars.$spacing-md;
+    padding: vars.$spacing-sm;
+  }
+
+  .under-construction-content {
+    padding: vars.$spacing-md;
+  }
+
+  .under-construction-image {
+    width: 100px;
+  }
+
+  .under-construction-title {
+    font-size: vars.$font-size-large;
+  }
+
+  .under-construction-message {
+    font-size: vars.$font-size-small;
+  }
+
+  .under-construction-back-button {
+    padding: vars.$spacing-xs vars.$spacing-sm;
+    font-size: vars.$font-size-small;
+  }
+}

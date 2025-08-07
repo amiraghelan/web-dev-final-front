@@ -30,6 +30,13 @@ const AdminPanel = () => {
                   }>
                   Products
                </NavLink>
+               <NavLink
+                  to="/coming-soon"
+                  className={({ isActive }) =>
+                     `tab ${isActive ? "active" : ""}`
+                  }>
+                  Users
+               </NavLink>
             </div>
             <Routes>
                <Route

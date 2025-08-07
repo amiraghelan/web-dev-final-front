@@ -4,6 +4,7 @@ import { toast } from "react-toastify";
 import { FiShoppingCart } from "react-icons/fi";
 import AddToCartModal from "@components/AddToCartModal";
 import "@styles/pages/CartPage.scss";
+import { useNavigate } from "react-router-dom";
 
 const CartPage = () => {
    const authContext = useContext(AuthContext);
@@ -13,6 +14,8 @@ const CartPage = () => {
       quantity: number;
       stock: number;
    } | null>(null);
+
+   const navigate = useNavigate();
 
    if (!authContext)
       throw new Error("AuthContext must be used within AuthProvider");
@@ -30,7 +33,7 @@ const CartPage = () => {
       cart?.reduce((total, item) => total + calculateItemTotal(item), 0) || 0;
 
    const handleFinalizeOrder = () => {
-      alert("Place finalized!");
+      navigate("/coming-soon");
    };
 
    const handleEdit = (item: {
