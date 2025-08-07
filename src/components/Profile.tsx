@@ -6,7 +6,7 @@ import config from "@data/configs.json";
 import "@styles/components/Profile.scss";
 
 interface Address {
-  _id: string;
+  id: string;
   title: string;
   country: string;
   city: string;
@@ -119,12 +119,12 @@ const Profile = () => {
     }
   };
 
-  const handleDeleteAddress = async (_id: string) => {
+  const handleDeleteAddress = async (id: string) => {
     setIsLoading(true);
     try {
       await axios.delete(`${config.apiBaseUrl}/address`, {
         headers: { Authorization: `Bearer ${token}` },
-        data: {addressId: _id },
+        data: {addressId: id },
       });
       toast.success("Address deleted successfully");
       await fetchAddresses();
@@ -178,7 +178,7 @@ const Profile = () => {
           ) : addresses.length > 0 ? (
             <div className="addresses-list">
               {addresses.map((addr) => (
-                <div key={addr._id} className="address-item">
+                <div key={addr.id} className="address-item">
                   <span className="address-title">{addr.title}</span>
                   <button
                     className="details-button"
@@ -343,7 +343,7 @@ const Profile = () => {
             <div className="modal-actions">
               <button
                 className="delete-address-button"
-                onClick={() => handleDeleteAddress(selectedAddress._id)}
+                onClick={() => handleDeleteAddress(selectedAddress.id)}
                 disabled={isLoading}
               >
                 Delete Address
