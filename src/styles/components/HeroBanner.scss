@@ -16,12 +16,12 @@
   }
 
   .hero-content {
-    text-align: center; // Centered for mobile
+    text-align: center; 
     max-width: 600px;
 
     @media (min-width: vars.$breakpoint-md) {
-      text-align: left; // Left-aligned for large screens
-      margin-left: vars.$spacing-lg; // Offset from left edge
+      text-align: left; 
+      margin-left: vars.$spacing-lg;
     }
   }
 
@@ -63,16 +63,16 @@
   }
 
   @media (max-width: vars.$breakpoint-md) {
-    padding: vars.$spacing-md; // Tighter padding for mobile
-    background-position: top; // Focus on top of image for mobile
+    padding: vars.$spacing-md; 
+    background-position: top; 
     .hero-content {
-      margin: 0 auto; // Center content on mobile
+      margin: 0 auto; 
     }
     .hero-title {
-      font-size: 1.75rem; // Smaller title for mobile
+      font-size: 1.75rem; 
     }
     .hero-memo {
-      font-size: vars.$font-size-small; // Smaller memo for mobile
+      font-size: vars.$font-size-small; 
     }
   }
 }
