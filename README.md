@@ -4,6 +4,14 @@ Awesome Shop is a modern e-commerce web application built with React and TypeScr
 
 ---
 
+## Live Demo
+
+You can try the project online at: [https://awsome-shop.netlify.app](https://awsome-shop.netlify.app)
+
+---
+
+
+
 ## Table of Contents
 
 - [Overview](#overview)

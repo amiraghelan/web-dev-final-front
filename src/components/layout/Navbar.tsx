@@ -105,7 +105,7 @@ const Navbar = () => {
                         className="nav-icon profile-icon"
                         onClick={() => setIsProfileOpen(!isProfileOpen)}
                         title="Profile">
-                        👤
+                        <img src="/profile.png" alt="Profile" />
                      </button>
                      {isProfileOpen && (
                         <div className="profile-dropdown">
@@ -127,7 +127,7 @@ const Navbar = () => {
                      onClick={() => navigate("/cart")}
                      title="Cart">
                      {cartCount ? (<div className="badge">{cartCount}</div>) : <></>}
-                     🛒
+                     <img src="/cart.png" alt="Cart"/>
                   </button>
                </div>
             )}

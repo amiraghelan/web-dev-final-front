@@ -6,7 +6,7 @@ const HeroBanner = () => {
       <section className="hero-banner">
          <div className="container">
             <div className="hero-content">
-               <h1 className="hero-title">Welcome to My Shop</h1>
+               <h1 className="hero-title">Welcome to Awsome Shop</h1>
                <p className="hero-memo">
                   Discover quality products with a touch of elegance.
                </p>

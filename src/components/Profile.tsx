@@ -147,7 +147,7 @@ const Profile = () => {
         </div>
         <div className="profile-card">
           <div className="profile-avatar">
-            <span role="img" aria-label="User Avatar">👤</span>
+              <img src="/profile.png" alt="Profile" />
           </div>
           <div className="profile-details">
             <div className="profile-field">

@@ -1,360 +1,131 @@
 .profile {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  background-color: vars.$background-color;
-  padding: vars.$spacing-md;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   min-height: 100vh;
+   background-color: vars.$background-color;
+   padding: vars.$spacing-md;
 
-  .profile-container {
-    max-width: vars.$breakpoint-md;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: vars.$spacing-lg;
-  }
+   .profile-container {
+      max-width: vars.$breakpoint-md;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: vars.$spacing-lg;
+   }
 
-  .profile-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: vars.$spacing-md;
-  }
-
-  .profile-title {
-    font-size: 2rem;
-    font-weight: vars.$font-weight-bold;
-    color: vars.$text-color;
-    margin: 0;
-  }
-
-  .edit-button {
-    background-color: vars.$primary-color;
-    color: vars.$white;
-    border: none;
-    border-radius: 8px;
-    padding: vars.$spacing-sm vars.$spacing-md;
-    font-size: vars.$font-size-base;
-    cursor: pointer;
-    transition: background-color vars.$transition-speed vars.$transition-easing;
-
-    &:hover {
-      background-color: vars.$accent-color;
-    }
-
-    &:disabled {
-      background-color: vars.$neutral-color;
-      cursor: not-allowed;
-    }
-  }
-
-  .profile-card {
-    background-color: vars.$white;
-    border-radius: 12px;
-    box-shadow: vars.$shadow-md;
-    padding: vars.$spacing-lg;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: vars.$spacing-md;
-  }
-
-  .profile-avatar {
-    font-size: 4rem;
-    background-color: vars.$background-color;
-    border-radius: 50%;
-    width: 100px;
-    height: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: vars.$shadow-sm;
-  }
-
-  .profile-details {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: vars.$spacing-sm;
-  }
-
-  .profile-field {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: vars.$spacing-sm;
-    border-bottom: 1px solid vars.$neutral-color;
-
-    .field-label {
-      font-size: vars.$font-size-base;
-      font-weight: vars.$font-weight-medium;
-      color: vars.$primary-color;
-    }
-
-    .field-value {
-      font-size: vars.$font-size-base;
-      color: vars.$text-color;
-    }
-  }
-
-  .addresses-section {
-    background-color: vars.$white;
-    border-radius: 12px;
-    box-shadow: vars.$shadow-md;
-    padding: vars.$spacing-lg;
-    position: relative;
-  }
-
-  .addresses-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: vars.$spacing-md;
-  }
-
-  .addresses-title {
-    font-size: 1.5rem;
-    font-weight: vars.$font-weight-bold;
-    color: vars.$text-color;
-    margin: 0;
-  }
-
-  .add-address-button {
-    background-color: vars.$primary-color;
-    color: vars.$white;
-    border: none;
-    border-radius: 8px;
-    padding: vars.$spacing-sm vars.$spacing-md;
-    font-size: vars.$font-size-base;
-    cursor: pointer;
-    transition: background-color vars.$transition-speed vars.$transition-easing;
-
-    &:hover {
-      background-color: vars.$accent-color;
-    }
-
-    &:disabled {
-      background-color: vars.$neutral-color;
-      cursor: not-allowed;
-    }
-  }
-
-  .loading-spinner {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: vars.$spacing-md;
-    font-size: vars.$font-size-base;
-    color: vars.$primary-color;
-
-    span {
-      display: inline-flex;
+   .profile-header {
+      display: flex;
+      justify-content: space-between;
       align-items: center;
-      gap: vars.$spacing-xs;
+      margin-bottom: vars.$spacing-md;
+   }
 
-      &::before {
-        content: "";
-        width: 16px;
-        height: 16px;
-        border: 2px solid vars.$primary-color;
-        border-top-color: transparent;
-        border-radius: 50%;
-        animation: spin 1s linear infinite;
-      }
-    }
-
-    @keyframes spin {
-      to {
-        transform: rotate(360deg);
-      }
-    }
-  }
-
-  .addresses-list {
-    display: flex;
-    flex-direction: column;
-    gap: vars.$spacing-sm;
-    max-height: 300px;
-    overflow-y: auto;
-  }
-
-  .address-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: vars.$spacing-sm;
-    border-bottom: 1px solid vars.$neutral-color;
-
-    .address-title {
-      font-size: vars.$font-size-base;
+   .profile-title {
+      font-size: 2rem;
+      font-weight: vars.$font-weight-bold;
       color: vars.$text-color;
-      font-weight: vars.$font-weight-medium;
-    }
+      margin: 0;
+   }
 
-    .details-button {
+   .edit-button {
       background-color: vars.$primary-color;
       color: vars.$white;
       border: none;
       border-radius: 8px;
-      padding: vars.$spacing-xs vars.$spacing-sm;
-      font-size: vars.$font-size-xs;
+      padding: vars.$spacing-sm vars.$spacing-md;
+      font-size: vars.$font-size-base;
       cursor: pointer;
-      transition: background-color vars.$transition-speed vars.$transition-easing;
+      transition: background-color vars.$transition-speed
+         vars.$transition-easing;
 
       &:hover {
-        background-color: vars.$accent-color;
+         background-color: vars.$accent-color;
       }
 
       &:disabled {
-        background-color: vars.$neutral-color;
-        cursor: not-allowed;
+         background-color: vars.$neutral-color;
+         cursor: not-allowed;
       }
-    }
-  }
+   }
 
-  .no-addresses {
-    font-size: vars.$font-size-base;
-    color: vars.$neutral-color;
-    text-align: center;
-    padding: vars.$spacing-md;
-
-    p {
-      margin: 0;
-    }
-  }
-
-  .modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-  }
-
-  .modal {
-    background-color: vars.$white;
-    border-radius: 12px;
-    box-shadow: vars.$shadow-lg;
-    padding: vars.$spacing-lg;
-    max-width: 400px;
-    width: 100%;
-  }
-
-  .modal-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: vars.$spacing-md;
-
-    h2 {
-      font-size: 1.5rem;
-      color: vars.$text-color;
-      margin: 0;
-    }
-
-    .modal-close {
-      background: none;
-      border: none;
-      font-size: vars.$font-size-large;
-      color: vars.$text-color;
-      cursor: pointer;
-
-      &:hover {
-        color: vars.$accent-color;
-      }
-    }
-  }
-
-  .modal-form {
-    display: flex;
-    flex-direction: column;
-    gap: vars.$spacing-md;
-
-    .form-group {
+   .profile-card {
+      background-color: vars.$white;
+      border-radius: 12px;
+      box-shadow: vars.$shadow-md;
+      padding: vars.$spacing-lg;
       display: flex;
       flex-direction: column;
-      gap: vars.$spacing-xs;
+      align-items: center;
+      gap: vars.$spacing-md;
+   }
 
-      label {
-        font-size: vars.$font-size-base;
-        color: vars.$text-color;
-        font-weight: vars.$font-weight-medium;
-      }
-
-      input {
-        padding: vars.$spacing-sm;
-        border: 1px solid vars.$neutral-color;
-        border-radius: 8px;
-        font-size: vars.$font-size-base;
-        color: vars.$text-color;
-        background-color: vars.$background-color;
-        transition: border-color vars.$transition-speed vars.$transition-easing;
-
-        &:focus {
-          outline: none;
-          border-color: vars.$primary-color;
-        }
-
-        &::placeholder {
-          color: vars.$neutral-color;
-        }
-      }
-    }
-  }
-
-  .address-details {
-    display: flex;
-    flex-direction: column;
-    gap: vars.$spacing-sm;
-    margin-bottom: vars.$spacing-md;
-
-    .address-field {
+   .profile-avatar {
+      font-size: 4rem;
+      background-color: vars.$background-color;
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
       display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: vars.$shadow-sm;
+
+      img {
+        width: 48px;
+        height: 48px;
+      }
+   }
+
+   .profile-details {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr;
       gap: vars.$spacing-sm;
+   }
+
+   .profile-field {
+      display: flex;
       justify-content: space-between;
       align-items: center;
       padding: vars.$spacing-sm;
       border-bottom: 1px solid vars.$neutral-color;
 
       .field-label {
-        font-size: vars.$font-size-base;
-        font-weight: vars.$font-weight-medium;
-        color: vars.$primary-color;
+         font-size: vars.$font-size-base;
+         font-weight: vars.$font-weight-medium;
+         color: vars.$primary-color;
       }
 
       .field-value {
-        font-size: vars.$font-size-base;
-        color: vars.$text-color;
+         font-size: vars.$font-size-base;
+         color: vars.$text-color;
       }
-    }
-  }
+   }
 
-  .modal-actions {
-    display: flex;
-    gap: vars.$spacing-sm;
-    justify-content: flex-end;
+   .addresses-section {
+      background-color: vars.$white;
+      border-radius: 12px;
+      box-shadow: vars.$shadow-md;
+      padding: vars.$spacing-lg;
+      position: relative;
+   }
 
-    .cancel-button {
-      background-color: vars.$neutral-color;
+   .addresses-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: vars.$spacing-md;
+   }
+
+   .addresses-title {
+      font-size: 1.5rem;
+      font-weight: vars.$font-weight-bold;
       color: vars.$text-color;
-      border: none;
-      border-radius: 8px;
-      padding: vars.$spacing-sm vars.$spacing-md;
-      font-size: vars.$font-size-base;
-      cursor: pointer;
-      transition: background-color vars.$transition-speed vars.$transition-easing;
+      margin: 0;
+   }
 
-      &:hover {
-        background-color: vars.$background-color;
-      }
-    }
-
-    .submit-button {
+   .add-address-button {
       background-color: vars.$primary-color;
       color: vars.$white;
       border: none;
@@ -362,113 +133,354 @@
       padding: vars.$spacing-sm vars.$spacing-md;
       font-size: vars.$font-size-base;
       cursor: pointer;
-      transition: background-color vars.$transition-speed vars.$transition-easing;
+      transition: background-color vars.$transition-speed
+         vars.$transition-easing;
 
       &:hover {
-        background-color: vars.$accent-color;
+         background-color: vars.$accent-color;
       }
 
       &:disabled {
-        background-color: vars.$neutral-color;
-        cursor: not-allowed;
+         background-color: vars.$neutral-color;
+         cursor: not-allowed;
       }
-    }
+   }
 
-    .delete-address-button {
-      background-color: vars.$danger-color;
-      color: vars.$white;
-      border: none;
-      border-radius: 8px;
-      padding: vars.$spacing-sm vars.$spacing-md;
+   .loading-spinner {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: vars.$spacing-md;
       font-size: vars.$font-size-base;
-      cursor: pointer;
-      transition: background-color vars.$transition-speed vars.$transition-easing;
+      color: vars.$primary-color;
 
-      &:hover {
-        background-color: vars.darken(vars.$danger-color, 10%);
+      span {
+         display: inline-flex;
+         align-items: center;
+         gap: vars.$spacing-xs;
+
+         &::before {
+            content: "";
+            width: 16px;
+            height: 16px;
+            border: 2px solid vars.$primary-color;
+            border-top-color: transparent;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+         }
       }
 
-      &:disabled {
-        background-color: vars.$neutral-color;
-        cursor: not-allowed;
+      @keyframes spin {
+         to {
+            transform: rotate(360deg);
+         }
       }
-    }
-  }
+   }
 
-  @media (max-width: vars.$breakpoint-md) {
-    .profile-container {
+   .addresses-list {
+      display: flex;
+      flex-direction: column;
+      gap: vars.$spacing-sm;
+      max-height: 300px;
+      overflow-y: auto;
+   }
+
+   .address-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       padding: vars.$spacing-sm;
-    }
+      border-bottom: 1px solid vars.$neutral-color;
 
-    .profile-title {
-      font-size: 1.5rem;
-    }
-
-    .edit-button,
-    .add-address-button,
-    .details-button,
-    .delete-address-button {
-      padding: vars.$spacing-xs vars.$spacing-sm;
-      font-size: vars.$font-size-small;
-    }
-
-    .profile-card,
-    .addresses-section {
-      padding: vars.$spacing-md;
-    }
-
-    .profile-avatar {
-      font-size: 3rem;
-      width: 80px;
-      height: 80px;
-    }
-
-    .profile-field,
-    .address-field {
-      padding: vars.$spacing-xs;
-
-      .field-label,
-      .field-value,
       .address-title {
-        font-size: vars.$font-size-small;
+         font-size: vars.$font-size-base;
+         color: vars.$text-color;
+         font-weight: vars.$font-weight-medium;
       }
-    }
 
-    .address-item {
-      padding: vars.$spacing-xs;
-    }
+      .details-button {
+         background-color: vars.$primary-color;
+         color: vars.$white;
+         border: none;
+         border-radius: 8px;
+         padding: vars.$spacing-xs vars.$spacing-sm;
+         font-size: vars.$font-size-xs;
+         cursor: pointer;
+         transition: background-color vars.$transition-speed
+            vars.$transition-easing;
 
-    .loading-spinner {
-      font-size: vars.$font-size-small;
+         &:hover {
+            background-color: vars.$accent-color;
+         }
 
-      span::before {
-        width: 12px;
-        height: 12px;
+         &:disabled {
+            background-color: vars.$neutral-color;
+            cursor: not-allowed;
+         }
       }
-    }
+   }
 
-    .no-addresses {
-      font-size: vars.$font-size-small;
-    }
-
-    .modal {
+   .no-addresses {
+      font-size: vars.$font-size-base;
+      color: vars.$neutral-color;
+      text-align: center;
       padding: vars.$spacing-md;
-    }
 
-    .modal-header {
+      p {
+         margin: 0;
+      }
+   }
+
+   .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+   }
+
+   .modal {
+      background-color: vars.$white;
+      border-radius: 12px;
+      box-shadow: vars.$shadow-lg;
+      padding: vars.$spacing-lg;
+      max-width: 400px;
+      width: 100%;
+   }
+
+   .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: vars.$spacing-md;
+
       h2 {
-        font-size: 1.25rem;
+         font-size: 1.5rem;
+         color: vars.$text-color;
+         margin: 0;
       }
-    }
 
-    .modal-form,
-    .address-details {
-      .form-group,
-      .address-field {
-        input {
-          font-size: vars.$font-size-small;
-        }
+      .modal-close {
+         background: none;
+         border: none;
+         font-size: vars.$font-size-large;
+         color: vars.$text-color;
+         cursor: pointer;
+
+         &:hover {
+            color: vars.$accent-color;
+         }
       }
-    }
-  }
+   }
+
+   .modal-form {
+      display: flex;
+      flex-direction: column;
+      gap: vars.$spacing-md;
+
+      .form-group {
+         display: flex;
+         flex-direction: column;
+         gap: vars.$spacing-xs;
+
+         label {
+            font-size: vars.$font-size-base;
+            color: vars.$text-color;
+            font-weight: vars.$font-weight-medium;
+         }
+
+         input {
+            padding: vars.$spacing-sm;
+            border: 1px solid vars.$neutral-color;
+            border-radius: 8px;
+            font-size: vars.$font-size-base;
+            color: vars.$text-color;
+            background-color: vars.$background-color;
+            transition: border-color vars.$transition-speed
+               vars.$transition-easing;
+
+            &:focus {
+               outline: none;
+               border-color: vars.$primary-color;
+            }
+
+            &::placeholder {
+               color: vars.$neutral-color;
+            }
+         }
+      }
+   }
+
+   .address-details {
+      display: flex;
+      flex-direction: column;
+      gap: vars.$spacing-sm;
+      margin-bottom: vars.$spacing-md;
+
+      .address-field {
+         display: flex;
+         gap: vars.$spacing-sm;
+         justify-content: space-between;
+         align-items: center;
+         padding: vars.$spacing-sm;
+         border-bottom: 1px solid vars.$neutral-color;
+
+         .field-label {
+            font-size: vars.$font-size-base;
+            font-weight: vars.$font-weight-medium;
+            color: vars.$primary-color;
+         }
+
+         .field-value {
+            font-size: vars.$font-size-base;
+            color: vars.$text-color;
+         }
+      }
+   }
+
+   .modal-actions {
+      display: flex;
+      gap: vars.$spacing-sm;
+      justify-content: flex-end;
+
+      .cancel-button {
+         background-color: vars.$neutral-color;
+         color: vars.$text-color;
+         border: none;
+         border-radius: 8px;
+         padding: vars.$spacing-sm vars.$spacing-md;
+         font-size: vars.$font-size-base;
+         cursor: pointer;
+         transition: background-color vars.$transition-speed
+            vars.$transition-easing;
+
+         &:hover {
+            background-color: vars.$background-color;
+         }
+      }
+
+      .submit-button {
+         background-color: vars.$primary-color;
+         color: vars.$white;
+         border: none;
+         border-radius: 8px;
+         padding: vars.$spacing-sm vars.$spacing-md;
+         font-size: vars.$font-size-base;
+         cursor: pointer;
+         transition: background-color vars.$transition-speed
+            vars.$transition-easing;
+
+         &:hover {
+            background-color: vars.$accent-color;
+         }
+
+         &:disabled {
+            background-color: vars.$neutral-color;
+            cursor: not-allowed;
+         }
+      }
+
+      .delete-address-button {
+         background-color: vars.$danger-color;
+         color: vars.$white;
+         border: none;
+         border-radius: 8px;
+         padding: vars.$spacing-sm vars.$spacing-md;
+         font-size: vars.$font-size-base;
+         cursor: pointer;
+         transition: background-color vars.$transition-speed
+            vars.$transition-easing;
+
+         &:hover {
+            background-color: vars.darken(vars.$danger-color, 10%);
+         }
+
+         &:disabled {
+            background-color: vars.$neutral-color;
+            cursor: not-allowed;
+         }
+      }
+   }
+
+   @media (max-width: vars.$breakpoint-md) {
+      .profile-container {
+         padding: vars.$spacing-sm;
+      }
+
+      .profile-title {
+         font-size: 1.5rem;
+      }
+
+      .edit-button,
+      .add-address-button,
+      .details-button,
+      .delete-address-button {
+         padding: vars.$spacing-xs vars.$spacing-sm;
+         font-size: vars.$font-size-small;
+      }
+
+      .profile-card,
+      .addresses-section {
+         padding: vars.$spacing-md;
+      }
+
+      .profile-avatar {
+         font-size: 3rem;
+         width: 80px;
+         height: 80px;
+      }
+
+      .profile-field,
+      .address-field {
+         padding: vars.$spacing-xs;
+
+         .field-label,
+         .field-value,
+         .address-title {
+            font-size: vars.$font-size-small;
+         }
+      }
+
+      .address-item {
+         padding: vars.$spacing-xs;
+      }
+
+      .loading-spinner {
+         font-size: vars.$font-size-small;
+
+         span::before {
+            width: 12px;
+            height: 12px;
+         }
+      }
+
+      .no-addresses {
+         font-size: vars.$font-size-small;
+      }
+
+      .modal {
+         padding: vars.$spacing-md;
+      }
+
+      .modal-header {
+         h2 {
+            font-size: 1.25rem;
+         }
+      }
+
+      .modal-form,
+      .address-details {
+         .form-group,
+         .address-field {
+            input {
+               font-size: vars.$font-size-small;
+            }
+         }
+      }
+   }
 }
